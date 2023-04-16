@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Text.Json;
 
 namespace FinalProyectData
 {
@@ -13,6 +15,10 @@ namespace FinalProyectData
         private Dictionary<string, List<News>> newsByKeyword;
         private Dictionary<DateTime, List<News>> newsByTime;
         private List<News> newsByKeywordAndTime;
+        private List<News> allData;
+        private String PathJson = @"../../MOCK_DATA.json";
+        private String JsonToString;
+        private dynamic data;
 
 
         public List<News> GetNewsById(int id)
@@ -64,7 +70,17 @@ namespace FinalProyectData
 
         }
 
+        public void get_All_data( ) {
+            JsonToString = File.ReadAllText(PathJson);
+            //1
+            //data = JsonSerializer.Deserialize<dynamic>(JsonToString);
 
+            //2
+            List<News> news = JsonSerializer.Deserialize<List<News>>(JsonToString);
+
+            //Console.WriteLine(data[0]);
+            this.allData = news;
+        }
 
 
     }

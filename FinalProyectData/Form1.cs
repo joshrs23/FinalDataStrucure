@@ -7,28 +7,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Text.Json;
 
 namespace FinalProyectData
 {
     public partial class Form1 : Form
     {
-        private String PathJson = @"../../MOCK_DATA.json";
-        private String JsonToString;
-        private dynamic data;
+        private Main main;
 
         public Form1()
         {
             InitializeComponent();
-            JsonToString = File.ReadAllText(PathJson);
-            data = JsonSerializer.Deserialize<dynamic>(JsonToString);
-            List<News> news = JsonSerializer.Deserialize<List<News>>(JsonToString);
-
-            Console.WriteLine(data[0]);
+            main = new Main();
+            main.get_All_data();
+            
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnShow_Click(object sender, EventArgs e)
         {
 
         }
