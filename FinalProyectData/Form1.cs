@@ -19,12 +19,87 @@ namespace FinalProyectData
             InitializeComponent();
             main = new Main();
             main.fill_All_data();
+
+            if(rbtnKeyword.Checked)
+            {
+                txtKeywords.Enabled = true;
+                txtTime.Enabled = false;
+            }
             
         }
 
+        
+
         private void btnShow_Click(object sender, EventArgs e)
         {
+            
+        }
 
+        private void txtKeywords_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void rbtnKeyword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnKeyword.Checked)
+            {
+                txtKeywords.Enabled = true;
+                txtTime.Enabled = false;
+            }
+        }
+
+        private void rbtnTime_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnTime.Checked)
+            {
+                txtKeywords.Enabled = false;
+                txtTime.Enabled = true;
+            }
+        }
+
+        private void rbtnKeywordsTime_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbtnKeywordsTime.Checked)
+            {
+                txtKeywords.Enabled = true;
+                txtTime.Enabled = true;
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            txtKeywords.Enabled = false;
+            txtTime.Enabled = false;
+            txtId.Enabled = false;
+            rbtnKeyword.Enabled = false;
+            rbtnKeywordsTime.Enabled = false;
+            rbtnTime.Enabled = false;
+        }
+
+        private void cmbSearchBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbSearchBy.Text == "Id")
+            {
+                txtId.Enabled = true;
+                txtKeywords.Enabled = false;
+                txtTime.Enabled=false;
+                rbtnKeyword.Enabled = false;
+                rbtnKeywordsTime.Enabled = false;
+                rbtnTime.Enabled = false;
+                btnShow.Text = "SELECT";
+            }
+            else
+            {
+                txtId.Enabled = false;
+                rbtnKeyword.Enabled = true;
+                rbtnKeywordsTime.Enabled = true;
+                rbtnTime.Enabled = true;
+                btnShow.Text = "SHOW";
+
+            }
+
+           
         }
     }
 }

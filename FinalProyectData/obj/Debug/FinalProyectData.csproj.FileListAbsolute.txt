@@ -56,3 +56,4 @@ D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\obj\Debug\
 D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\obj\Debug\FinalProyectData.exe
 D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\obj\Debug\FinalProyectData.pdb
 D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\obj\Debug\FinalProyectData.Form1.resources
+C:\Users\ADMIN\Desktop\GITHUB\FinalDataStrucure\FinalProyectData\obj\Debug\FinalProyectData.Form1.resources
