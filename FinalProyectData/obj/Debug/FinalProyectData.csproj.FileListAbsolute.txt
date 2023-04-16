@@ -27,3 +27,31 @@ C:\Users\ADMIN\Desktop\GITHUB\FinalDataStrucure\FinalProyectData\obj\Debug\Final
 C:\Users\ADMIN\Desktop\GITHUB\FinalDataStrucure\FinalProyectData\obj\Debug\FinalProyectData.csproj.CopyComplete
 C:\Users\ADMIN\Desktop\GITHUB\FinalDataStrucure\FinalProyectData\obj\Debug\FinalProyectData.exe
 C:\Users\ADMIN\Desktop\GITHUB\FinalDataStrucure\FinalProyectData\obj\Debug\FinalProyectData.pdb
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\FinalProyectData.exe.config
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\FinalProyectData.exe
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\FinalProyectData.pdb
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.Buffers.dll
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.Memory.dll
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.Numerics.Vectors.dll
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.Text.Encodings.Web.dll
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.Text.Json.dll
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.ValueTuple.dll
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.Buffers.xml
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.Memory.xml
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.Numerics.Vectors.xml
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.Text.Encodings.Web.xml
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.Text.Json.xml
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\bin\Debug\System.ValueTuple.xml
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\obj\Debug\FinalProyectData.csproj.AssemblyReference.cache
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\obj\Debug\FinalProyectData.Properties.Resources.resources
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\obj\Debug\FinalProyectData.csproj.GenerateResource.cache
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\obj\Debug\FinalProyectData.csproj.CoreCompileInputs.cache
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\obj\Debug\FinalProyectData.csproj.CopyComplete
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\obj\Debug\FinalProyectData.exe
+D:\Downloads\collage\winter 2023\C#\FinalProyectData\FinalProyectData\obj\Debug\FinalProyectData.pdb
