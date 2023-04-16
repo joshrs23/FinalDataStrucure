@@ -36,7 +36,7 @@ namespace FinalProyectData
             this.label1 = new System.Windows.Forms.Label();
             this.cmbSearchBy = new System.Windows.Forms.ComboBox();
             this.btnShow = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lstNews = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label3
@@ -103,21 +103,21 @@ namespace FinalProyectData
             this.btnShow.Text = "Show";
             this.btnShow.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // lstNews
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(48, 226);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(817, 196);
-            this.listBox1.TabIndex = 15;
+            this.lstNews.FormattingEnabled = true;
+            this.lstNews.ItemHeight = 16;
+            this.lstNews.Location = new System.Drawing.Point(48, 226);
+            this.lstNews.Name = "lstNews";
+            this.lstNews.Size = new System.Drawing.Size(817, 196);
+            this.lstNews.TabIndex = 15;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 469);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lstNews);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTime);
@@ -141,7 +141,7 @@ namespace FinalProyectData
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbSearchBy;
         private System.Windows.Forms.Button btnShow;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lstNews;
     }
 }
 
