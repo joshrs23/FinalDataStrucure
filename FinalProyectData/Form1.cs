@@ -43,20 +43,24 @@ namespace FinalProyectData
             {
 
                 int idToFilter = int.Parse(txtId.Text);
-               
+
+
+                
                 foreach(KeyValuePair<int, News> item in main.GetNewsByIdDictionary())
                 {
                     if (item.Key == idToFilter) {
 
                         lstNews.Items.Add(item.Key + ":  Time: " + item.Value.Time + " Content: " + item.Value.Content + " Keywords: " + item.Value.Hits);
 
+                        item.Value.Hits = item.Value.Hits++;
+
                     }
                     
                 }
-                
+
             }
-           
-            
+
+
 
 
         }
