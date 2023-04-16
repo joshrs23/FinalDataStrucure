@@ -46,6 +46,8 @@ namespace FinalProyectData
             if (newsByTime.ContainsKey(time))
             {
                 listOfNews.AddRange(newsByTime[time]);
+
+               
             }
 
             return listOfNews;
