@@ -13,21 +13,54 @@ namespace FinalProyectData
     public partial class Form1 : Form
     {
         private Main main;
-        //private List<News> listOfNews = 
+        
 
         public Form1()
         {
             InitializeComponent();
             main = new Main();
             main.fill_All_data();
-
-      
             
-        }
+            
+            main.lastNews();
+
+
+
+    }
 
         private void RefreshDisplayList()
         {
             lstNews.Items.Clear();
+
+            //lstNews.Items.Add(main.GetNewsById(Convert.ToInt32(txtId.Text)));
+            //List<News> news =  main.LoadData(); 
+
+            /*List<News> news = main.LoadData();
+           
+            foreach (News item in news)
+            {
+                lstNews.Items.Add(item.ID);
+            }
+            */
+
+            if (cmbSearchBy.Text == "Id")
+            {
+
+                int idToFilter = int.Parse(txtId.Text);
+               
+                foreach(KeyValuePair<int, News> item in main.GetNewsByIdDictionary())
+                {
+                    if (item.Key == idToFilter) {
+
+                        lstNews.Items.Add(item.Key + ":  Time: " + item.Value.Time + " Content: " + item.Value.Content + " Keywords: " + item.Value.Hits);
+
+                    }
+                    
+                }
+                
+            }
+           
+            
 
 
         }
@@ -48,6 +81,10 @@ namespace FinalProyectData
                     MessageBox.Show("Id must be numeric only");
                     return;
                 }
+
+                //Console.WriteLine(main.GetNewsById(1));
+
+                RefreshDisplayList();
 
                // filteredList = listOfNews.Where
             }

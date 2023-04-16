@@ -33,16 +33,9 @@ namespace FinalProyectData
             this.realTime = time;
         }
 
-        public List<News> GetNewsById(int id)
+        public Dictionary<int, News> GetNewsByIdDictionary()
         {
-            List<News> listOfNews = new List<News>();
-
-            if (newsById.ContainsKey(id))
-            {
-                listOfNews.Add(newsById[id]);
-            }
-
-            return listOfNews;
+            return newsById;
         }
 
         public List<News> GetNewsByTime(DateTime time)
@@ -82,6 +75,13 @@ namespace FinalProyectData
 
         }
 
+        public List<News> LoadData ()
+        {
+            
+            return this.allData;
+
+        }
+
         public void fill_All_data( ) {
             JsonToString = File.ReadAllText(PathJson);
             //1
@@ -94,6 +94,8 @@ namespace FinalProyectData
             this.allData = news;
             for (int i = 0; i < this.allData.Count; i++)
             {
+
+                // DataStructure HashMaps
                 newsById.Add(this.allData[i].ID, this.allData[i]);
                 newsByKeyword.Add(this.allData[i].Keywords, this.allData[i]);
             }
@@ -104,6 +106,10 @@ namespace FinalProyectData
             Console.WriteLine(newsByKeyword[key]);
             Console.WriteLine("***");
             Console.WriteLine();*/
+
+           
+
+            
         }
 
         public String lastNews() {
