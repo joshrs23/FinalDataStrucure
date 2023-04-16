@@ -86,6 +86,7 @@ namespace FinalProyectData
 
 
         public void RefreshDisplayList_news24() {
+            lstNews.Items.Clear();
             string Keywords = this.txtKeywords.Text;
             string time = this.txtTime.Text;
 
@@ -125,22 +126,27 @@ namespace FinalProyectData
 
             Stack < News > news = this.main.lastNews(Keywords,(long)Convert.ToInt32(time));
             //lau porfa muestrame los datos que encontro
-
-            List<News> recentNews = news.ToList();
+        
+            //List<News> recentNews = news.ToList();
             if (news != null)
             {
                 String datatoShow;
 
-                for ( int i = 0; i < recentNews.Count; i++)
+                /* for ( int i = 0; i < recentNews.Count; i++)
+                 {
+                     datatoShow = recentNews[i].ID + ":  Time: " + recentNews[i].Time + " Content: " + recentNews[i].Content + " Keywords: " + recentNews[i].Keywords + " Hits: " + recentNews[i].Hits;
+                     lstNews.Items.Add(datatoShow);
+
+                 }*/
+                News new_;//we are using stack to show the data from the new news to the older news with pop.
+                while(news.Count>0)
                 {
-                    datatoShow = recentNews[i].ID + ":  Time: " + recentNews[i].Time + " Content: " + recentNews[i].Content + " Keywords: " + recentNews[i].Keywords + " Hits: " + recentNews[i].Hits;
+                    new_ = news.Pop();
+                    
+                    datatoShow = new_.ID + ":  Time: " + new_.Time + " Content: " + new_.Content + " Keywords: " + new_.Keywords + " Hits: " + new_.Hits;
                     lstNews.Items.Add(datatoShow);
 
-
-                    //main.addNewWatched(renews);
                 }
-
-
 
             }
             else
@@ -151,7 +157,7 @@ namespace FinalProyectData
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-
+            
             var filteredList = new List<News>();
 
             if(cmbSearchBy.Text == "Id")

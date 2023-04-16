@@ -139,12 +139,11 @@ namespace FinalProyectData
         public Stack<News> lastNews(string Keywords=null, long time=0) {
             //here we fill recent
             string news = "";
-            Console.WriteLine("***time***");
-            Console.WriteLine(this.realTime+" - "+ this.allData[0].Time + " = "+ (this.realTime - (long)Convert.ToDouble(this.allData[0].Time)));
-            Console.WriteLine("***time***");
+            this.recent.Clear();
+
             if (Keywords == null && time == 0)
             {//no filters
-                for (int i = this.allData.Count - 1; i >= 0; i--)
+                for (int i = 0; i < this.allData.Count ; i++)
                 {
                     if (this.realTime - (long)Convert.ToDouble(this.allData[i].Time) < 86401)//day - 24H
                     {
@@ -152,7 +151,39 @@ namespace FinalProyectData
                     }
                 }
             }
-            
+            else if (Keywords != null && time == 0)
+            {
+                for (int i = 0; i < this.allData.Count; i++)
+                {
+                    if (this.realTime - (long)Convert.ToDouble(this.allData[i].Time) < 86401)//day - 24H
+                    {
+                        for (int j = 0; j < this.allData[i].Keywords.Length; j++)
+                        {
+                            if (this.allData[i].Keywords[j].Equals(Keywords))
+                            {
+                                this.recent.Push(this.allData[i]);
+                            }
+                        }
+                    }
+                }
+            }
+            else if (Keywords == null && time != 0)
+            {
+                for (int i = 0; i < this.allData.Count; i++)
+                {
+                    long subTime = (time > (long)Convert.ToDouble(this.allData[i].Time)) ?  (long)Convert.ToDouble(this.allData[i].Time)- time : time - (long)Convert.ToDouble(this.allData[i].Time);
+                    //subTime =
+                    if (subTime > -86401)//day - 24H
+                    {
+                        this.recent.Push(this.allData[i]);
+                    }
+                }
+            }
+            else if (Keywords != null && time != 0)
+            {
+
+            }
+
             return this.recent;
         }
 
