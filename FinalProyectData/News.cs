@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinalProyectData
 {
-    class News
+    public class News
     {
         public int ID { get; set; } // Unique id for each news
         public string Time { get; set; } // Time of news publication which is based on EPOCH
