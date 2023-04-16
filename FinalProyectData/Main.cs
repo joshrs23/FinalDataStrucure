@@ -19,12 +19,19 @@ namespace FinalProyectData
         private String PathJson = @"../../MOCK_DATA.json";
         private String JsonToString;
         private dynamic data;
+        private Queue<News> recent;
+        private long realTime;
 
         public Main() {
             newsById = new Dictionary<int, News>();
             newsByKeyword = new Dictionary<string[], News > ();
+            recent = new Queue<News>();
+            this.realTime = DateTimeOffset.Now.ToUnixTimeSeconds();
         }
 
+        public void set_realTime(long time) {
+            this.realTime = time;
+        }
 
         public List<News> GetNewsById(int id)
         {
@@ -97,6 +104,18 @@ namespace FinalProyectData
             Console.WriteLine(newsByKeyword[key]);
             Console.WriteLine("***");
             Console.WriteLine();*/
+        }
+
+        public String lastNews() {
+            string news = "";
+            for (int i = this.allData.Count-1; i >=0; i--)
+            {
+                if (this.realTime-(long)Convert.ToDouble(this.allData[i].Time)>0)
+                {
+
+                }
+            }
+            return news;
         }
 
         //public void 
