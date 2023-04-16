@@ -136,25 +136,24 @@ namespace FinalProyectData
         }
 
         //
-        public String lastNews(string Keywords=null, long time=0) {
+        public Stack<News> lastNews(string Keywords=null, long time=0) {
             //here we fill recent
             string news = "";
             Console.WriteLine("***time***");
-            Console.WriteLine(this.realTime);
+            Console.WriteLine(this.realTime+" - "+ this.allData[0].Time + " = "+ (this.realTime - (long)Convert.ToDouble(this.allData[0].Time)));
             Console.WriteLine("***time***");
             if (Keywords == null && time == 0)
             {//no filters
                 for (int i = this.allData.Count - 1; i >= 0; i--)
                 {
-                    Console.WriteLine(this.allData[i].Time);
-                    if (this.realTime - (long)Convert.ToDouble(this.allData[i].Time) < 86.401)//day - 24H
+                    if (this.realTime - (long)Convert.ToDouble(this.allData[i].Time) < 86401)//day - 24H
                     {
-
+                        this.recent.Push(this.allData[i]);
                     }
                 }
             }
             
-            return news;
+            return this.recent;
         }
 
         //public void 

@@ -119,7 +119,8 @@ namespace FinalProyectData
                 time = "0";
             }
 
-            this.main.lastNews(Keywords,(long)Convert.ToInt64(time));
+            Stack < News > news = this.main.lastNews(Keywords,(long)Convert.ToInt64(time));
+            //lau porfa muestrame los datos que encontro
         }
 
         private void btnShow_Click(object sender, EventArgs e)
