@@ -19,7 +19,7 @@ namespace FinalProyectData
         private String PathJson = @"../../MOCK_DATA.json";
         private String JsonToString;
         private dynamic data;
-        private Queue<News> recent;
+        private Queue<News> recent;//show recent
         private long realTime;
 
         public Main() {
@@ -112,15 +112,25 @@ namespace FinalProyectData
             
         }
 
-        public String lastNews() {
+        //
+        public String lastNews(string Keywords=null, long time=0) {
+            //here we fill recent
             string news = "";
-            for (int i = this.allData.Count-1; i >=0; i--)
-            {
-                if (this.realTime-(long)Convert.ToDouble(this.allData[i].Time)>0)
+            Console.WriteLine("***time***");
+            Console.WriteLine(this.realTime);
+            Console.WriteLine("***time***");
+            if (Keywords == null && time == 0)
+            {//no filters
+                for (int i = this.allData.Count - 1; i >= 0; i--)
                 {
+                    Console.WriteLine(this.allData[i].Time);
+                    if (this.realTime - (long)Convert.ToDouble(this.allData[i].Time) > 0)
+                    {
 
+                    }
                 }
             }
+            
             return news;
         }
 

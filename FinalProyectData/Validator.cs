@@ -16,5 +16,12 @@ namespace FinalProyectData
             return myRegex.IsMatch(Num);
         }
 
+        public static bool ValidateAlphabetical(string parameter)
+        {
+            var myRegex = new Regex(@"^[A-z\s]+$");
+
+            return myRegex.IsMatch(parameter);
+        }
+
     }
 }
