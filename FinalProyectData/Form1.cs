@@ -91,11 +91,13 @@ namespace FinalProyectData
 
             if (this.rbtnKeyword.Checked && !this.rbtnKeywordsTime.Checked && !this.rbtnTime.Checked)
             {
-                if (Keywords.Length == 0 && !Validator.ValidateAlphabetical(Keywords))
+                if (Keywords.Length == 0 || !Validator.ValidateAlphabetical(Keywords))
                 {
                     MessageBox.Show("Keyowrd must be text only");
                     Keywords = null;
                 }
+
+                time = "0";
             }
             else if (!this.rbtnKeyword.Checked && !this.rbtnKeywordsTime.Checked && this.rbtnTime.Checked)
             {
@@ -104,6 +106,8 @@ namespace FinalProyectData
                     MessageBox.Show("Time must be numeric only");
                     time = "0";
                 }
+
+                Keywords = null;
             }
             else if (!this.rbtnKeyword.Checked && this.rbtnKeywordsTime.Checked && !this.rbtnTime.Checked)
             {
@@ -119,8 +123,30 @@ namespace FinalProyectData
                 time = "0";
             }
 
-            Stack < News > news = this.main.lastNews(Keywords,(long)Convert.ToInt64(time));
+            Stack < News > news = this.main.lastNews(Keywords,(long)Convert.ToInt32(time));
             //lau porfa muestrame los datos que encontro
+
+            List<News> recentNews = news.ToList();
+            if (news != null)
+            {
+                String datatoShow;
+
+                for ( int i = 0; i < recentNews.Count; i++)
+                {
+                    datatoShow = recentNews[i].ID + ":  Time: " + recentNews[i].Time + " Content: " + recentNews[i].Content + " Keywords: " + recentNews[i].Keywords + " Hits: " + recentNews[i].Hits;
+                    lstNews.Items.Add(datatoShow);
+
+
+                    //main.addNewWatched(renews);
+                }
+
+
+
+            }
+            else
+            {
+                MessageBox.Show("There are not recent news");
+            }
         }
 
         private void btnShow_Click(object sender, EventArgs e)
