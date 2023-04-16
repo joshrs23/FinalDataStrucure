@@ -19,13 +19,13 @@ namespace FinalProyectData
         private String PathJson = @"../../MOCK_DATA.json";
         private String JsonToString;
         private dynamic data;
-        private Queue<News> recent;//show recent
+        private Stack<News> recent;//show recent
         private long realTime;
 
         public Main() {
             newsById = new Dictionary<int, News>();
             newsByKeyword = new Dictionary<string[], News > ();
-            recent = new Queue<News>();
+            recent = new Stack<News>();
             this.realTime = DateTimeOffset.Now.ToUnixTimeSeconds();
         }
 
@@ -126,7 +126,7 @@ namespace FinalProyectData
                 for (int i = this.allData.Count - 1; i >= 0; i--)
                 {
                     Console.WriteLine(this.allData[i].Time);
-                    if (this.realTime - (long)Convert.ToDouble(this.allData[i].Time) > 0)
+                    if (this.realTime - (long)Convert.ToDouble(this.allData[i].Time) < 86.401)//day - 24H
                     {
 
                     }
