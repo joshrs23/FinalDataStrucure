@@ -18,7 +18,7 @@ namespace FinalProyectData
         {
             InitializeComponent();
             main = new Main();
-            main.get_All_data();
+            main.fill_All_data();
             
         }
 

@@ -62,7 +62,7 @@ namespace FinalProyectData
             // txtTime
             // 
             this.txtTime.Location = new System.Drawing.Point(131, 102);
-            this.txtTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTime.Margin = new System.Windows.Forms.Padding(2);
             this.txtTime.Name = "txtTime";
             this.txtTime.Size = new System.Drawing.Size(168, 20);
             this.txtTime.TabIndex = 12;
@@ -70,7 +70,7 @@ namespace FinalProyectData
             // txtKeywords
             // 
             this.txtKeywords.Location = new System.Drawing.Point(131, 63);
-            this.txtKeywords.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtKeywords.Margin = new System.Windows.Forms.Padding(2);
             this.txtKeywords.Name = "txtKeywords";
             this.txtKeywords.Size = new System.Drawing.Size(168, 20);
             this.txtKeywords.TabIndex = 11;
@@ -91,11 +91,9 @@ namespace FinalProyectData
             this.cmbSearchBy.Items.AddRange(new object[] {
             "Recent",
             "Trending",
-            "Keywords",
-            "Time",
-            "Keywords & Time"});
+            "Id"});
             this.cmbSearchBy.Location = new System.Drawing.Point(131, 18);
-            this.cmbSearchBy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbSearchBy.Margin = new System.Windows.Forms.Padding(2);
             this.cmbSearchBy.Name = "cmbSearchBy";
             this.cmbSearchBy.Size = new System.Drawing.Size(168, 21);
             this.cmbSearchBy.TabIndex = 9;
@@ -103,7 +101,7 @@ namespace FinalProyectData
             // btnShow
             // 
             this.btnShow.Location = new System.Drawing.Point(374, 10);
-            this.btnShow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnShow.Margin = new System.Windows.Forms.Padding(2);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(98, 31);
             this.btnShow.TabIndex = 8;
@@ -114,10 +112,9 @@ namespace FinalProyectData
             // lstNews
             // 
             this.lstNews.FormattingEnabled = true;
-            this.lstNews.ItemHeight = 16;
             this.lstNews.Location = new System.Drawing.Point(48, 226);
             this.lstNews.Name = "lstNews";
-            this.lstNews.Size = new System.Drawing.Size(817, 196);
+            this.lstNews.Size = new System.Drawing.Size(817, 186);
             this.lstNews.TabIndex = 15;
             // 
             // Form1
@@ -133,7 +130,7 @@ namespace FinalProyectData
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbSearchBy);
             this.Controls.Add(this.btnShow);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
