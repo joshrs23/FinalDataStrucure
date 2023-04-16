@@ -22,10 +22,6 @@ namespace FinalProyectData
             main.fill_All_data();
             
             
-            main.lastNews();
-
-
-
     }
 
         private void RefreshDisplayList()
@@ -66,8 +62,42 @@ namespace FinalProyectData
         }
 
 
+        public void RefreshDisplayList_news24() {
+            string Keywords = this.txtKeywords.Text;
+            string time = this.txtTime.Text;
 
-        
+            if (this.rbtnKeyword.Checked && !this.rbtnKeywordsTime.Checked && !this.rbtnTime.Checked)
+            {
+                if (Keywords.Length == 0 && !Validator.ValidateAlphabetical(Keywords))
+                {
+                    MessageBox.Show("Keyowrd must be text only");
+                    Keywords = null;
+                }
+            }
+            else if (!this.rbtnKeyword.Checked && !this.rbtnKeywordsTime.Checked && this.rbtnTime.Checked)
+            {
+                if (!Validator.ValidateNumeric(time))
+                {
+                    MessageBox.Show("Time must be numeric only");
+                    time = "0";
+                }
+            }
+            else if (!this.rbtnKeyword.Checked && this.rbtnKeywordsTime.Checked && !this.rbtnTime.Checked)
+            {
+                if (Keywords.Length == 0 && !Validator.ValidateAlphabetical(Keywords) && !Validator.ValidateNumeric(time))
+                {
+                    MessageBox.Show("Keyowrd must be text only and Time must be numeric only");
+                    Keywords = null;
+                    time = "0";
+                }
+            }
+            else {
+                Keywords = null;
+                time = "0";
+            }
+
+            this.main.lastNews(Keywords,(long)Convert.ToInt64(time));
+        }
 
         private void btnShow_Click(object sender, EventArgs e)
         {
@@ -86,7 +116,12 @@ namespace FinalProyectData
 
                 RefreshDisplayList();
 
-               // filteredList = listOfNews.Where
+                // filteredList = listOfNews.Where
+            }
+            else if(cmbSearchBy.Text.Equals("Recent"))
+            {
+                this.RefreshDisplayList_news24();             
+
             }
         }
 
