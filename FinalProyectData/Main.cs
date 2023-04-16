@@ -20,12 +20,15 @@ namespace FinalProyectData
         private String JsonToString;
         private dynamic data;
         private Stack<News> recent;//show recent
+        private Stack<News> trending;//show the last viewed
+        private Stack<News> back; //Show last user reading
         private long realTime;
 
         public Main() {
             newsById = new Dictionary<int, News>();
             newsByKeyword = new Dictionary<string[], News > ();
             recent = new Stack<News>();
+            trending = new Stack<News>();
             this.realTime = DateTimeOffset.Now.ToUnixTimeSeconds();
         }
 
@@ -33,9 +36,27 @@ namespace FinalProyectData
             this.realTime = time;
         }
 
+        public void addNewWatched(News new_)
+        {
+            this.trending.Push(new_);
+        }
+
         public Dictionary<int, News> GetNewsByIdDictionary()
         {
             return newsById;
+        }
+
+        public News getNewsById(int id)
+        {
+            if (this.newsById.ContainsKey(id))
+            {
+                this.newsById[id].Hits++;
+                return this.newsById[id];
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public List<News> GetNewsByTime(DateTime time)

@@ -118,6 +118,7 @@ namespace FinalProyectData
             // lstNews
             // 
             this.lstNews.FormattingEnabled = true;
+            this.lstNews.HorizontalScrollbar = true;
             this.lstNews.ItemHeight = 16;
             this.lstNews.Location = new System.Drawing.Point(64, 278);
             this.lstNews.Margin = new System.Windows.Forms.Padding(4);
@@ -178,7 +179,7 @@ namespace FinalProyectData
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(90, 214);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(29, 20);
+            this.label4.Size = new System.Drawing.Size(23, 16);
             this.label4.TabIndex = 20;
             this.label4.Text = "ID:";
             // 

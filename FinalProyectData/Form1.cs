@@ -44,8 +44,8 @@ namespace FinalProyectData
 
                 int idToFilter = int.Parse(txtId.Text);
 
-
-                
+                /*
+                //Another way to do it
                 foreach(KeyValuePair<int, News> item in main.GetNewsByIdDictionary())
                 {
                     if (item.Key == idToFilter) {
@@ -54,10 +54,29 @@ namespace FinalProyectData
 
                         item.Value.Hits = item.Value.Hits++;
 
+                        main.addNewWatched(item.Value);
+
                     }
                     
-                }
+                }*/
 
+                //We chose this option because of the complexity.
+
+                News news = main.getNewsById(idToFilter);
+                if (news != null)
+                {
+                    String datatoShow = news.ID + ":  Time: " + news.Time + " Content: " + news.Content + " Keywords: " + news.Keywords + " Hits: " + news.Hits;
+                    lstNews.Items.Add(datatoShow);
+
+                   
+                    main.addNewWatched(news);
+
+
+                }
+                else
+                {
+                    MessageBox.Show("This Id does not exist");
+                }
             }
 
 
