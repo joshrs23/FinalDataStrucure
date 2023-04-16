@@ -13,6 +13,7 @@ namespace FinalProyectData
     public partial class Form1 : Form
     {
         private Main main;
+        //private List<News> listOfNews = 
 
         public Form1()
         {
@@ -20,19 +21,36 @@ namespace FinalProyectData
             main = new Main();
             main.fill_All_data();
 
-            if(rbtnKeyword.Checked)
-            {
-                txtKeywords.Enabled = true;
-                txtTime.Enabled = false;
-            }
+      
             
         }
+
+        private void RefreshDisplayList()
+        {
+            lstNews.Items.Clear();
+
+
+        }
+
+
 
         
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            
+
+            var filteredList = new List<News>();
+
+            if(cmbSearchBy.Text == "Id")
+            {
+                if(!Validator.ValidateNumeric(txtId.Text))
+                {
+                    MessageBox.Show("Id must be numeric only");
+                    return;
+                }
+
+               // filteredList = listOfNews.Where
+            }
         }
 
         private void txtKeywords_TextChanged(object sender, EventArgs e)
