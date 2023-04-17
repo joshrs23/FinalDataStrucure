@@ -115,6 +115,7 @@ namespace FinalProyectData
 
             //Console.WriteLine(data[0]);
             this.allData = news;
+            this.allData.Sort((s1, s2) => s1.Time.CompareTo(s2.Time));
             for (int i = 0; i < this.allData.Count; i++)
             {
 
@@ -130,9 +131,9 @@ namespace FinalProyectData
             Console.WriteLine("***");
             Console.WriteLine();*/
 
-           
 
-            
+
+
         }
 
         //
