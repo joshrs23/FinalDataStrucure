@@ -162,6 +162,76 @@ namespace FinalProyectData
             }
         }
 
+        public void RefreshDisplayTrending_news24()
+        {
+            lstNews.Items.Clear();
+            string Keywords = this.txtKeywords.Text.Replace(" ", "");
+            string time = this.txtTime.Text;
+
+            if (this.rbtnKeyword.Checked && !this.rbtnKeywordsTime.Checked && !this.rbtnTime.Checked)
+            {
+                if (Keywords.Length == 0 || !Validator.ValidateAlphabetical(Keywords))
+                {
+                    MessageBox.Show("Keyowrd must be text only");
+                    Keywords = null;
+                }
+
+                time = "0";
+            }
+            else if (!this.rbtnKeyword.Checked && !this.rbtnKeywordsTime.Checked && this.rbtnTime.Checked)
+            {
+                if (!Validator.ValidateNumeric(time))
+                {
+                    MessageBox.Show("Time must be numeric only");
+                    time = "0";
+                }
+
+                Keywords = null;
+            }
+            else if (!this.rbtnKeyword.Checked && this.rbtnKeywordsTime.Checked && !this.rbtnTime.Checked)
+            {
+                if (Keywords.Length == 0 && !Validator.ValidateAlphabetical(Keywords) && !Validator.ValidateNumeric(time))
+                {
+                    MessageBox.Show("Keyowrd must be text only and Time must be numeric only");
+                    Keywords = null;
+                    time = "0";
+                }
+            }
+            else
+            {
+                Keywords = null;
+                time = "0";
+            }
+
+            List<News> news = this.main.showTrending(Keywords, (long)Convert.ToInt32(time));
+            //List<News> recentNews = news.ToList();
+            if (news != null)
+            {
+                String datatoShow;
+                News new_;//we are using stack to show the data from the new news to the older news with pop.
+                for (int j = 0; j < news.Count; j++)
+                {
+                    new_ = news[j];
+
+                    String keyword = "";
+                    string[] Keywords_ = new_.Keywords;
+                    for (int i = 0; i < Keywords_.Length; i++)
+                    {
+                        keyword = keyword + " " + Keywords_[i];
+                    }
+
+                    datatoShow = new_.ID + ":  Time: " + new_.Time + " Content: " + new_.Content + " Keywords: " + keyword + " Hits: " + new_.Hits;
+                    lstNews.Items.Add(datatoShow);
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("There are not recent news");
+            }
+        }
+
         private void btnShow_Click(object sender, EventArgs e)
         {
             
@@ -183,8 +253,12 @@ namespace FinalProyectData
             }
             else if(cmbSearchBy.Text.Equals("Recent"))
             {
-                this.RefreshDisplayList_news24();             
-
+                this.RefreshDisplayList_news24();
+            }
+            else if (cmbSearchBy.Text.Equals("Trending"))
+            {
+                this.RefreshDisplayTrending_news24();
+                //Trending
             }
         }
 

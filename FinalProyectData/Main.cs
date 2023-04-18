@@ -27,6 +27,7 @@ namespace FinalProyectData
             newsByKeyword = new Dictionary<string[], News > ();
             recent = new Stack<News>();
             trending = new Dictionary<int, int>();
+            back = new Stack<News>();
             this.realTime = DateTimeOffset.Now.ToUnixTimeSeconds();
         }
 
@@ -245,6 +246,26 @@ namespace FinalProyectData
             return this.recent;
         }
 
-        //public void 
+        public List<News> showTrending(string Keywords = null, long time = 0) {
+            List<News> allTrending = new List<News>();
+
+            if (Keywords == null && time == 0)
+            {//no filters
+                foreach (int value in this.trending.Values)
+                {
+                    if (this.realTime - (long)Convert.ToDouble(this.newsById[value].Time) < 86401)//day - 24H
+                    {
+                        allTrending.Add(this.newsById[value]);
+                    }
+                    if (allTrending.Count > 500)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            allTrending.Sort((s1, s2) => s1.Hits.CompareTo(s2.Hits));
+            return allTrending;
+        }
     }
 }
