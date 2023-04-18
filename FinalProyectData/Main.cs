@@ -319,6 +319,36 @@ namespace FinalProyectData
                     }
                 }
             }
+            else if (Keywords != null && time != 0)
+            {//keyword and time filter
+                foreach (int value in this.trending.Values)
+                {
+                    long subTime = (time > (long)Convert.ToDouble(this.newsById[value].Time)) ? (long)Convert.ToDouble(this.newsById[value].Time) - time : time - (long)Convert.ToDouble(this.newsById[value].Time);
+                    //subTime =
+                    if (subTime > -86401)//day - 24H
+                    {
+                        for (int j = 0; j < this.newsById[value].Keywords.Length; j++)
+                        {
+                            string[] keyword = Keywords.Split(',');
+                            for (int k = 0; k < keyword.Length; k++)
+                            {
+                                if (this.newsById[value].Keywords[j].Equals(keyword[k]))
+                                {
+                                    if (!noRepeat.ContainsKey(this.newsById[value].ID))
+                                    {
+                                        allTrending.Add(this.newsById[value]);
+                                        noRepeat.Add(this.newsById[value].ID, this.newsById[value].ID);
+                                    }
+                                    if (allTrending.Count > 500)
+                                    {
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             allTrending.Sort((s1, s2) => s2.Hits.CompareTo(s1.Hits));
             return allTrending;
         }
