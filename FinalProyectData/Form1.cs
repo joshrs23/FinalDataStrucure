@@ -64,7 +64,14 @@ namespace FinalProyectData
                 News news = main.getNewsById(idToFilter);
                 if (news != null)
                 {
-                    String datatoShow = news.ID + ":  Time: " + news.Time + " Content: " + news.Content + " Keywords: " + news.Keywords + " Hits: " + news.Hits;
+                    String keyword = "";
+                    string[] Keywords_ = news.Keywords;
+                    for (int i = 0; i < Keywords_.Length; i++)
+                    {
+                        keyword = keyword + " " + Keywords_[i];
+                    }
+
+                    String datatoShow = news.ID + ":  Time: " + news.Time + " Content: " + news.Content + " Keywords: " + keyword + " Hits: " + news.Hits;
                     lstNews.Items.Add(datatoShow);
 
                    
