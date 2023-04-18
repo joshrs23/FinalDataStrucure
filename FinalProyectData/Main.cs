@@ -44,6 +44,13 @@ namespace FinalProyectData
             this.back.Push(new_);
         }
 
+        public News getBack()
+        {
+            News lastNews = back.Peek();
+
+            return lastNews;
+        }
+
         public Dictionary<int, News> GetNewsByIdDictionary()
         {
             return newsById;
