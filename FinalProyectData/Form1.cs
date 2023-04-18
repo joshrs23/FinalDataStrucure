@@ -21,8 +21,7 @@ namespace FinalProyectData
             main = new Main();
             main.fill_All_data();
             
-            
-    }
+        }
 
         private void RefreshDisplayList()
         {
@@ -253,6 +252,27 @@ namespace FinalProyectData
             }
 
            
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+
+            News lastItem = main.getBack();
+
+            if (lastItem != null)
+            {
+                String datatoShow = lastItem.ID + ":  Time: " + lastItem.Time + " Content: " + lastItem.Content + " Keywords: " + lastItem.Keywords + " Hits: " + lastItem.Hits;
+                lstNews.Items.Add(datatoShow);
+
+
+                main.addNewWatched(lastItem);
+
+
+            }
+            else
+            {
+                MessageBox.Show("This Id does not exist");
+            }
         }
     }
 }

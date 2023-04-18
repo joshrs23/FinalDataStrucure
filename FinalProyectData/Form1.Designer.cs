@@ -42,7 +42,7 @@ namespace FinalProyectData
             this.rbtnKeywordsTime = new System.Windows.Forms.RadioButton();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -183,20 +183,22 @@ namespace FinalProyectData
             this.label4.TabIndex = 20;
             this.label4.Text = "ID:";
             // 
-            // richTextBox1
+            // btnBack
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(540, 111);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(612, 144);
-            this.richTextBox1.TabIndex = 21;
-            this.richTextBox1.Text = "";
+            this.btnBack.Location = new System.Drawing.Point(1021, 233);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(131, 38);
+            this.btnBack.TabIndex = 21;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1229, 577);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.rbtnKeywordsTime);
@@ -234,7 +236,7 @@ namespace FinalProyectData
         private System.Windows.Forms.RadioButton rbtnKeywordsTime;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button btnBack;
     }
 }
 
