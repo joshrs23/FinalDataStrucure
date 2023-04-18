@@ -14,11 +14,9 @@ namespace FinalProyectData
         private Dictionary<int, News> newsById;//select
         private Dictionary<string[], News> newsByKeyword;
         private Dictionary<DateTime, List<News>> newsByTime;
-        private List<News> newsByKeywordAndTime;
         private List<News> allData;
         private String PathJson = @"../../MOCK_DATA.json";
         private String JsonToString;
-        private dynamic data;
         private Stack<News> recent;//show recent
         private Stack<News> trending;//show the last viewed
         private Stack<News> back; //Show last user reading
@@ -141,6 +139,7 @@ namespace FinalProyectData
             //here we fill recent
             string news = "";
             this.recent.Clear();
+            Dictionary<int, int> noRepeat = new Dictionary<int, int>();
 
             if (Keywords == null && time == 0)
             {//no filters
@@ -148,40 +147,68 @@ namespace FinalProyectData
                 {
                     if (this.realTime - (long)Convert.ToDouble(this.allData[i].Time) < 86401)//day - 24H
                     {
-                        this.recent.Push(this.allData[i]);
+                        if (!noRepeat.ContainsKey(this.allData[i].ID))
+                        {
+                            this.recent.Push(this.allData[i]);
+                            noRepeat.Add(this.allData[i].ID, this.allData[i].ID);
+                        }
+                        if (this.recent.Count>500)
+                        {
+                            break;
+                        }
                     }
                 }
             }
             else if (Keywords != null && time == 0)
-            {
+            {//keywords filter
                 for (int i = 0; i < this.allData.Count; i++)
                 {
                     if (this.realTime - (long)Convert.ToDouble(this.allData[i].Time) < 86401)//day - 24H
                     {
                         for (int j = 0; j < this.allData[i].Keywords.Length; j++)
                         {
-                            if (this.allData[i].Keywords[j].Equals(Keywords))
+                            string[] keyword = Keywords.Split(',');
+                            for (int k = 0; k < keyword.Length; k++)
                             {
-                                this.recent.Push(this.allData[i]);
+                                if (this.allData[i].Keywords[j].Equals(keyword[k]))
+                                {
+                                    if (!noRepeat.ContainsKey(this.allData[i].ID))
+                                    {
+                                        this.recent.Push(this.allData[i]);
+                                        noRepeat.Add(this.allData[i].ID, this.allData[i].ID);
+                                    }
+                                    if (this.recent.Count > 500)
+                                    {
+                                        break;
+                                    }
+                                }
                             }
                         }
                     }
                 }
             }
             else if (Keywords == null && time != 0)
-            {
+            {//time filter
                 for (int i = 0; i < this.allData.Count; i++)
                 {
                     long subTime = (time > (long)Convert.ToDouble(this.allData[i].Time)) ?  (long)Convert.ToDouble(this.allData[i].Time)- time : time - (long)Convert.ToDouble(this.allData[i].Time);
                     //subTime =
                     if (subTime > -86401)//day - 24H
                     {
-                        this.recent.Push(this.allData[i]);
+                        if (!noRepeat.ContainsKey(this.allData[i].ID))
+                        {
+                            this.recent.Push(this.allData[i]);
+                            noRepeat.Add(this.allData[i].ID, this.allData[i].ID);
+                        }
+                        if (this.recent.Count > 500)
+                        {
+                            break;
+                        }
                     }
                 }
             }
             else if (Keywords != null && time != 0)
-            {
+            {//keyword and time filter
                 for (int i = 0; i < this.allData.Count; i++)
                 {
                     long subTime = (time > (long)Convert.ToDouble(this.allData[i].Time)) ? (long)Convert.ToDouble(this.allData[i].Time) - time : time - (long)Convert.ToDouble(this.allData[i].Time);
@@ -190,9 +217,21 @@ namespace FinalProyectData
                     {
                         for (int j = 0; j < this.allData[i].Keywords.Length; j++)
                         {
-                            if (this.allData[i].Keywords[j].Equals(Keywords))
+                            string[] keyword = Keywords.Split(',');
+                            for (int k = 0; k < keyword.Length; k++)
                             {
-                                this.recent.Push(this.allData[i]);
+                                if (this.allData[i].Keywords[j].Equals(keyword[k]))
+                                {
+                                    if (!noRepeat.ContainsKey(this.allData[i].ID))
+                                    {
+                                        this.recent.Push(this.allData[i]);
+                                        noRepeat.Add(this.allData[i].ID, this.allData[i].ID);
+                                    }
+                                    if (this.recent.Count > 500)
+                                    {
+                                        break;
+                                    }
+                                }
                             }
                         }
                     }

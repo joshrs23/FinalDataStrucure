@@ -18,7 +18,7 @@ namespace FinalProyectData
 
         public static bool ValidateAlphabetical(string parameter)
         {
-            var myRegex = new Regex(@"^[A-z\s]+$");
+            var myRegex = new Regex(@"^[a-zA-Z]+\s*(,[a-zA-Z]+\s*)*$");
 
             return myRegex.IsMatch(parameter);
         }

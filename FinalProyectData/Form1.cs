@@ -87,7 +87,7 @@ namespace FinalProyectData
 
         public void RefreshDisplayList_news24() {
             lstNews.Items.Clear();
-            string Keywords = this.txtKeywords.Text;
+            string Keywords = this.txtKeywords.Text.Replace(" ","");
             string time = this.txtTime.Text;
 
             if (this.rbtnKeyword.Checked && !this.rbtnKeywordsTime.Checked && !this.rbtnTime.Checked)
@@ -142,8 +142,15 @@ namespace FinalProyectData
                 while(news.Count>0)
                 {
                     new_ = news.Pop();
-                    
-                    datatoShow = new_.ID + ":  Time: " + new_.Time + " Content: " + new_.Content + " Keywords: " + new_.Keywords + " Hits: " + new_.Hits;
+
+                    String keyword = "";
+                    string[] Keywords_ = new_.Keywords;
+                    for (int i = 0; i < Keywords_.Length; i++)
+                    {
+                        keyword = keyword + " " + Keywords_[i];
+                    }
+
+                    datatoShow = new_.ID + ":  Time: " + new_.Time + " Content: " + new_.Content + " Keywords: " + keyword + " Hits: " + new_.Hits;
                     lstNews.Items.Add(datatoShow);
 
                 }
