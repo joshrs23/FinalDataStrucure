@@ -18,7 +18,7 @@ namespace FinalProyectData
         private String PathJson = @"../../MOCK_DATA.json";
         private String JsonToString;
         private Stack<News> recent;//show recent
-        private Stack<News> trending;//show the last viewed
+        private Dictionary<int, int> trending;//show the last viewed
         private Stack<News> back; //Show last user reading
         private long realTime;
 
@@ -26,7 +26,7 @@ namespace FinalProyectData
             newsById = new Dictionary<int, News>();
             newsByKeyword = new Dictionary<string[], News > ();
             recent = new Stack<News>();
-            trending = new Stack<News>();
+            trending = new Dictionary<int, int>();
             this.realTime = DateTimeOffset.Now.ToUnixTimeSeconds();
         }
 
@@ -36,7 +36,11 @@ namespace FinalProyectData
 
         public void addNewWatched(News new_)
         {
-            this.trending.Push(new_);
+            if (!trending.ContainsKey(new_.ID))
+            {
+                this.trending.Add(new_.ID, new_.ID);
+            }
+            this.back.Push(new_);
         }
 
         public Dictionary<int, News> GetNewsByIdDictionary()
