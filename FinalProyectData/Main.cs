@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.Json;
+using System.Windows.Forms;
 
 namespace FinalProyectData
 {
@@ -46,9 +47,19 @@ namespace FinalProyectData
 
         public News getBack()
         {
-            News lastNews = back.Peek();
+
+            News lastNews = null;
+
+            if (this.back.Count > 1)
+            {
+                lastNews = this.back.Pop();
+
+                lastNews = this.back.Pop();
+            }
+            
 
             return lastNews;
+
         }
 
         public Dictionary<int, News> GetNewsByIdDictionary()

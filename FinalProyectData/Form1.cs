@@ -330,7 +330,7 @@ namespace FinalProyectData
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-
+            lstNews.Items.Clear();
             News lastItem = main.getBack();
 
             if (lastItem != null)
@@ -345,7 +345,7 @@ namespace FinalProyectData
             }
             else
             {
-                MessageBox.Show("This Id does not exist");
+                MessageBox.Show("There are not news seen right before");
             }
         }
     }
