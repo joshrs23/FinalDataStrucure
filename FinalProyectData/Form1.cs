@@ -355,5 +355,20 @@ namespace FinalProyectData
                 MessageBox.Show("There are not news seen right before");
             }
         }
+
+        private void btnSetTime_Click(object sender, EventArgs e)
+        {
+            if(Validator.ValidateNumeric(txtSetTime.Text))
+            {
+                main.set_realTime((long)Convert.ToDouble(txtSetTime.Text));
+            }
+            else
+            {
+                MessageBox.Show("Time must be numeric");
+                return;
+            }
+            
+
+        }
     }
 }

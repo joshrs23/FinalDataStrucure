@@ -43,6 +43,9 @@ namespace FinalProyectData
             this.txtId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
+            this.txtSetTime = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnSetTime = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label3
@@ -193,11 +196,40 @@ namespace FinalProyectData
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // txtSetTime
+            // 
+            this.txtSetTime.Location = new System.Drawing.Point(804, 23);
+            this.txtSetTime.Name = "txtSetTime";
+            this.txtSetTime.Size = new System.Drawing.Size(202, 22);
+            this.txtSetTime.TabIndex = 22;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(730, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(41, 16);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Time:";
+            // 
+            // btnSetTime
+            // 
+            this.btnSetTime.Location = new System.Drawing.Point(1031, 19);
+            this.btnSetTime.Name = "btnSetTime";
+            this.btnSetTime.Size = new System.Drawing.Size(130, 30);
+            this.btnSetTime.TabIndex = 24;
+            this.btnSetTime.Text = "Set Time";
+            this.btnSetTime.UseVisualStyleBackColor = true;
+            this.btnSetTime.Click += new System.EventHandler(this.btnSetTime_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1229, 577);
+            this.Controls.Add(this.btnSetTime);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtSetTime);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtId);
@@ -237,6 +269,9 @@ namespace FinalProyectData
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.TextBox txtSetTime;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnSetTime;
     }
 }
 
