@@ -45,6 +45,11 @@ namespace FinalProyectData
             this.back.Push(new_);
         }
 
+        public long getTimeSet()
+        {
+            return this.realTime;
+        }
+
         public News getBack()
         {
 

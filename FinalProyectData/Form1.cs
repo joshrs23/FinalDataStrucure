@@ -114,6 +114,12 @@ namespace FinalProyectData
                     time = "0";
                 }
 
+                if (Convert.ToInt32(time) > main.getTimeSet())
+                {
+                    MessageBox.Show("Time must be smaller than the set time or current time");
+                    return;
+                }
+
                 Keywords = null;
             }
             else if (!this.rbtnKeyword.Checked && this.rbtnKeywordsTime.Checked && !this.rbtnTime.Checked)
@@ -124,6 +130,14 @@ namespace FinalProyectData
                     Keywords = null;
                     time = "0";
                 }
+
+                if (Convert.ToInt32(time) > main.getTimeSet())
+                {
+                    MessageBox.Show("Time must be smaller than the set time or current time");
+                    return;
+                }
+
+
             }
             else {
                 Keywords = null;
@@ -192,6 +206,12 @@ namespace FinalProyectData
                     time = "0";
                 }
 
+                if (Convert.ToInt32(time) > main.getTimeSet())
+                {
+                    MessageBox.Show("Time must be smaller than the set time or current time");
+                    return;
+                }
+
                 Keywords = null;
             }
             else if (!this.rbtnKeyword.Checked && this.rbtnKeywordsTime.Checked && !this.rbtnTime.Checked)
@@ -201,6 +221,12 @@ namespace FinalProyectData
                     MessageBox.Show("Keyowrd must be text only and Time must be numeric only");
                     Keywords = null;
                     time = "0";
+                }
+
+                if (Convert.ToInt32(time) > main.getTimeSet())
+                {
+                    MessageBox.Show("Time must be smaller than the set time or current time");
+                    return;
                 }
             }
             else
@@ -266,6 +292,21 @@ namespace FinalProyectData
                 this.RefreshDisplayTrending_news24();
                 //Trending
             }
+
+            txtId.Text = "";
+            txtKeywords.Text = "";
+            txtTime.Text = "";
+
+            txtId.Enabled = false;
+            txtKeywords.Enabled = false;
+            txtTime.Enabled = false;
+
+            rbtnKeyword.Checked = false;
+            rbtnKeywordsTime.Checked = false;
+            rbtnTime.Checked = false;
+
+            
+
         }
 
         private void txtKeywords_TextChanged(object sender, EventArgs e)
@@ -360,13 +401,17 @@ namespace FinalProyectData
         {
             if(Validator.ValidateNumeric(txtSetTime.Text))
             {
+               
                 main.set_realTime((long)Convert.ToDouble(txtSetTime.Text));
+                MessageBox.Show("Time was set to: " + txtSetTime.Text );
             }
             else
             {
                 MessageBox.Show("Time must be numeric");
                 return;
             }
+
+            txtSetTime.Text = "";
             
 
         }
