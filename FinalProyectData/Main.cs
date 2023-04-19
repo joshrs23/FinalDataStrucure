@@ -163,12 +163,13 @@ namespace FinalProyectData
             string news = "";
             this.recent.Clear();
             Dictionary<int, int> noRepeat = new Dictionary<int, int>();
-
+            
             if (Keywords == null && time == 0)
             {//no filters
                 for (int i = 0; i < this.allData.Count ; i++)
                 {
-                    if (this.realTime - (long)Convert.ToDouble(this.allData[i].Time) < 86401)//day - 24H
+                    long subTime = this.realTime - (long)Convert.ToDouble(this.allData[i].Time);
+                    if (subTime < 86401 && subTime>=0)//day - 24H
                     {
                         if (!noRepeat.ContainsKey(this.allData[i].ID))
                         {
@@ -181,12 +182,14 @@ namespace FinalProyectData
                         }
                     }
                 }
+                
             }
             else if (Keywords != null && time == 0)
             {//keywords filter
                 for (int i = 0; i < this.allData.Count; i++)
                 {
-                    if (this.realTime - (long)Convert.ToDouble(this.allData[i].Time) < 86401)//day - 24H
+                    long subTime = this.realTime - (long)Convert.ToDouble(this.allData[i].Time);
+                    if (subTime < 86401 && subTime >= 0)//day - 24H
                     {
                         for (int j = 0; j < this.allData[i].Keywords.Length; j++)
                         {
@@ -214,9 +217,8 @@ namespace FinalProyectData
             {//time filter
                 for (int i = 0; i < this.allData.Count; i++)
                 {
-                    long subTime = (time > (long)Convert.ToDouble(this.allData[i].Time)) ?  (long)Convert.ToDouble(this.allData[i].Time)- time : time - (long)Convert.ToDouble(this.allData[i].Time);
-                    //subTime =
-                    if (subTime > -86401)//day - 24H
+                    long subTime = time - (long)Convert.ToDouble(this.allData[i].Time);
+                    if (subTime < 86401 && subTime >= 0)//day - 24H
                     {
                         if (!noRepeat.ContainsKey(this.allData[i].ID))
                         {
@@ -234,9 +236,8 @@ namespace FinalProyectData
             {//keyword and time filter
                 for (int i = 0; i < this.allData.Count; i++)
                 {
-                    long subTime = (time > (long)Convert.ToDouble(this.allData[i].Time)) ? (long)Convert.ToDouble(this.allData[i].Time) - time : time - (long)Convert.ToDouble(this.allData[i].Time);
-                    //subTime =
-                    if (subTime > -86401)//day - 24H
+                    long subTime = time - (long)Convert.ToDouble(this.allData[i].Time);
+                    if (subTime < 86401 && subTime >= 0)//day - 24H
                     {
                         for (int j = 0; j < this.allData[i].Keywords.Length; j++)
                         {
@@ -272,7 +273,8 @@ namespace FinalProyectData
             {//no filters
                 foreach (int value in this.trending.Values)
                 {
-                    if (this.realTime - (long)Convert.ToDouble(this.newsById[value].Time) < 86401)//day - 24H
+                    long subTime = this.realTime - (long)Convert.ToDouble(this.newsById[value].Time);
+                    if (subTime < 86401 && subTime >= 0)//day - 24H
                     {
                         allTrending.Add(this.newsById[value]);
                     }
@@ -286,7 +288,8 @@ namespace FinalProyectData
             {//keywords filter
                 foreach (int value in this.trending.Values)
                 {
-                    if (this.realTime - (long)Convert.ToDouble(this.newsById[value].Time) < 86401)//day - 24H
+                    long subTime = this.realTime - (long)Convert.ToDouble(this.newsById[value].Time);
+                    if (subTime < 86401 && subTime >= 0)//day - 24H
                     {
                         for (int j = 0; j < this.newsById[value].Keywords.Length; j++)
                         {
@@ -314,9 +317,9 @@ namespace FinalProyectData
             {//time filter
                 foreach (int value in this.trending.Values)
                 {
-                    long subTime = (time > (long)Convert.ToDouble(this.newsById[value].Time)) ? (long)Convert.ToDouble(this.newsById[value].Time) - time : time - (long)Convert.ToDouble(this.newsById[value].Time);
+                    long subTime = time - (long)Convert.ToDouble(this.newsById[value].Time);
                     //subTime =
-                    if (subTime > -86401)//day - 24H
+                    if (subTime < 86401 && subTime >= 0)//day - 24H
                     {
                         if (!noRepeat.ContainsKey(this.newsById[value].ID))
                         {
@@ -334,9 +337,9 @@ namespace FinalProyectData
             {//keyword and time filter
                 foreach (int value in this.trending.Values)
                 {
-                    long subTime = (time > (long)Convert.ToDouble(this.newsById[value].Time)) ? (long)Convert.ToDouble(this.newsById[value].Time) - time : time - (long)Convert.ToDouble(this.newsById[value].Time);
+                    long subTime = time - (long)Convert.ToDouble(this.newsById[value].Time);
                     //subTime =
-                    if (subTime > -86401)//day - 24H
+                    if (subTime < 86401 && subTime >= 0)//day - 24H
                     {
                         for (int j = 0; j < this.newsById[value].Keywords.Length; j++)
                         {
